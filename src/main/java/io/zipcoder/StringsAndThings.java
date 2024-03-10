@@ -14,8 +14,21 @@ public class StringsAndThings {
      *           countYZ("day fez"); // Should return 2
      *           countYZ("day fyyyz"); // Should return 2
      */
-    public Integer countYZ(String input){
-        return null;
+    public Integer countYZ(String input) {
+        // make input lowercase so it is not case-sensitive
+        input.toLowerCase();
+        // get the last character of the input word
+        char letter = input.charAt(input.length() - 1);
+        // initialize the counter
+        int counter = 0;
+
+        // check if the last character of the input word is either y or z
+        if(letter == 'y' || letter == 'z') {
+            // if last character of input word is either y or z, increase counter to reflect instance
+            counter++;
+    }
+        // return the number of instance of words that end in either y or z
+        return counter;
     }
 
     /**
@@ -28,7 +41,15 @@ public class StringsAndThings {
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
     public String removeString(String base, String remove){
-        return null;
+        // make parameter words lowercase so they are not case-sensitive
+        base.toLowerCase();
+        remove.toLowerCase();
+
+        // wrap the value to remove in Integer wrapper class to extract index to remove for substring method
+        base.substring(0, Integer.parseInt(remove));
+
+
+        return base;
     }
 
     /**
