@@ -61,7 +61,25 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean containsEqualNumberOfIsAndNot(String input){
-        return null;
+        // make input word lowercase so it is not case-sensitive
+        input.toLowerCase();
+        // initialize counters and condition
+        int is = 0;
+        int not = 0;
+        boolean result = false;
+
+        // check if the string "is" or "not" appears anywhere in the input string
+        // iterate through the input string check if index equals is or not - if so count 1
+        for(int i = 0; i < input.length()-1; i++) {
+            if (input[i] == (String) "is") {
+                is++;
+            }
+            if (input[i] == (String) "not") {
+                not++;
+            }
+            result = is == not;
+        }
+        return result;
     }
 
     /**
@@ -72,7 +90,12 @@ public class StringsAndThings {
      *           gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input){
-        return null;
+        boolean answer = false;
+        for(int i = 0; i < input.length(); i++) {
+            answer = input.contains("gg");
+        }
+
+        return answer;
     }
 
 
@@ -84,6 +107,10 @@ public class StringsAndThings {
      *            countTriple("a") // Should return 0
      */
     public Integer countTriple(String input){
+        int counter = 0;
+        for(int i = 0; i < input.length(); i++) {
+
+        }
         return null;
     }
 }
