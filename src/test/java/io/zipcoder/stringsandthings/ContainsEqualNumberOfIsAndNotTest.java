@@ -34,4 +34,14 @@ public class ContainsEqualNumberOfIsAndNotTest {
         Boolean actual = stringsAndThings.containsEqualNumberOfIsAndNot("noisxxnotyynotxisi");
         Assert.assertTrue(actual);
     }
+@Test
+    public void testForIsAtThisPoint() {
+        String word = "this";
+        Assert.assertTrue(stringsAndThings.foundIsAtPoint(2,word));
+}
+@Test
+    public void testForNotAtThisPoint() {
+        String word = "cannot";
+    Assert.assertTrue(stringsAndThings.foundNotAtPoint(3,word));
+}
 }

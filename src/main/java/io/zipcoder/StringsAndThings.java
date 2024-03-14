@@ -66,20 +66,25 @@ public class StringsAndThings {
         // initialize counters and condition
         int is = 0;
         int not = 0;
-        boolean result = false;
 
+        // split input into an array of Strings
+        String[] words = input.split("");
         // check if the string "is" or "not" appears anywhere in the input string
-        // iterate through the input string check if index equals is or not - if so count 1
-        for(int i = 0; i < input.length()-1; i++) {
-            if (input[i] == (String) "is") {
-                is++;
+        // iterate through words array check if index equals is or not - if so count 1
+        for(int i = 0; i < input.length(); i++) {
+            char letter = input.charAt(i);
+            if (letter == 'i') {
+                if (foundIsAtPoint(i, input)) {
+                    is++;
+                }
             }
-            if (input[i] == (String) "not") {
-                not++;
+            if (letter == 'n') {
+                if (foundNotAtPoint(i, input)) {
+                    not++;
+                }
             }
-            result = is == not;
         }
-        return result;
+        return (is == not);
     }
 
     /**
@@ -107,10 +112,23 @@ public class StringsAndThings {
      *            countTriple("a") // Should return 0
      */
     public Integer countTriple(String input){
-        int counter = 0;
         for(int i = 0; i < input.length(); i++) {
 
         }
         return null;
+    }
+
+    public boolean foundIsAtPoint(int i, String word) {
+        if(word.length()-i < 2) {
+            return false;
+        }
+        return word.substring(i,i+2).contains("is");
+    }
+
+    public boolean foundNotAtPoint(int i, String word) {
+        if(word.length()-i < 3) {
+            return false;
+        }
+        return word.substring(i,i+3).contains("not");
     }
 }
