@@ -17,17 +17,14 @@ public class StringsAndThings {
     public Integer countYZ(String input) {
         // make input lowercase so it is not case-sensitive
         input.toLowerCase();
-        // get the last character of the input word
-        char letter = input.charAt(input.length() - 1);
-        // initialize the counter
+        String[] words = input.split(" ");
         int counter = 0;
+        for(String word : words) {
+            if(word.endsWith("y") || word.endsWith("z")) {
+                counter++;
+            }
+        }
 
-        // check if the last character of the input word is either y or z
-        if(letter == 'y' || letter == 'z') {
-            // if last character of input word is either y or z, increase counter to reflect instance
-            counter++;
-    }
-        // return the number of instance of words that end in either y or z
         return counter;
     }
 
@@ -41,15 +38,8 @@ public class StringsAndThings {
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
     public String removeString(String base, String remove){
-        // make parameter words lowercase so they are not case-sensitive
-        base.toLowerCase();
-        remove.toLowerCase();
 
-        // wrap the value to remove in Integer wrapper class to extract index to remove for substring method
-        base.substring(0, Integer.parseInt(remove));
-
-
-        return base;
+        return base.replace(remove,"");
     }
 
     /**
@@ -112,10 +102,14 @@ public class StringsAndThings {
      *            countTriple("a") // Should return 0
      */
     public Integer countTriple(String input){
-        for(int i = 0; i < input.length(); i++) {
+        int counter = 0;
+        for(int i = 0; i < input.length()-1; i++) {
+            if(input.charAt(i) == input.charAt(i+1) && input.charAt(i) == input.charAt(i+2) ){
+                counter++;
+            }
 
         }
-        return null;
+        return counter;
     }
 
     public boolean foundIsAtPoint(int i, String word) {
